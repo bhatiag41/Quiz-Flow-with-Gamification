@@ -105,8 +105,6 @@ const QuizApp = () => {
         if (!data.questions || !Array.isArray(data.questions)) {
           throw new Error('Invalid quiz data format');
         }
-  
-        // Transform API data to match app structure
         const transformedData = {
           questions: data.questions.map((q) => ({
             question: q.description,
@@ -118,7 +116,7 @@ const QuizApp = () => {
         setQuizData(transformedData);
       } catch (error) {
         console.error('Error:', error);
-        setQuizData(FALLBACK_DATA); // Use fallback data
+        setQuizData(FALLBACK_DATA); 
         setError(error);
       } finally {
         setIsLoading(false);
